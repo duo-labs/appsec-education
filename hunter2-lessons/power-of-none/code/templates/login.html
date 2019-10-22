@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    Please login below with your username and password.
+</p>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+{% if success|length > 0 %}
+<div class="alert alert-success">
+Login successful for user {{ username }}.
+<br/><br/>
+<b>Code:</b> <input type="text" size="5" id="code-value" value="{{ code }}"/>
+<a href="{{ code }}" data-clipboard-target="#code-value" class="copy-btn btn btn-success btn-sm" id="copy-code">Copy to clipboard and proceed</a>
+
+</div>
+<!-- <meta http-equiv="refresh" content="4;url=/user/code" /> -->
+{% endif %}
+
+<form action="/user/login" method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-5">
+            <input type="text" name="username" id="username" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-5">
+            <input type="password" name="password" id="password" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-5"><button class="btn btn-success" type="submit">Login</button></div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-2">&nbsp;</div>
+    <div class="col-sm-5">If you don't have a user yet, <a href="/user/register">register now</a>!</div>
+</div>
+
+<script>
+$(function() {
+    new ClipboardJS('.copy-btn');
+
+    $('#copy-code').on('click', function(e) {
+        e.preventDefault();
+        window.location = '/user/code';
+    });
+});
+</script>
+
+{% endblock %}

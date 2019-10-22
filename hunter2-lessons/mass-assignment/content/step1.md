@@ -1,0 +1,9 @@
+# A Brief History of Data Modeling
+
+As software evolved over the years, more complex methods of data handling were created. Initially data was just held on several "containers" (variables) used to represent different values and user input. As the code continued to evolve, more structure was needed for these values to help them make more sense and be easier to use.
+
+The idea of "models" in code [dates back to the 1960s](https://www.dataversity.net/brief-history-data-modeling/) when the ideas of objects and hierarchical systems started becoming popular. Over time the concepts and practices around data modeling became more complex, but the basic idea stayed the same: build a structure to contain information in an understandable way.
+
+This concept was picked up by several software frameworks and was even integrated into a popular design pattern as one of its three key points: the [Model-View-Controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). Because if its simplicity this design pattern became a popular choice and many frameworks were built around it, including Ruby on Rails. The models in these frameworks represented the data layer of the application and were usually populated with information from a database following the [Active Record](https://en.wikipedia.org/wiki/Active_record_pattern) design pattern. This related the column names back to properties of the models directly and made it easier to work with the records as objects rather than SQL queries. 
+
+This made the data easier to work with but also introduced a problem that came to light in a major way when a vulnerability of these active record models was [found on GitHub](http://www.h-online.com/open/news/item/GitHub-security-incident-highlights-Ruby-on-Rails-problem-1463207.html). In the next step we'll take a look at how this exploit worked.

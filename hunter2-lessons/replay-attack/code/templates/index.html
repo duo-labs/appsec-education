@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Users API</h2>
+
+<p>
+    The Users API provides information about the users in the system. In order to use this API you must 
+    register and log in. Information on this process is found below.
+</p>
+<hr/>
+
+<h3>Authentication</h3>
+<p>
+    Once you have registered an account, you can then use it for future authenticated requests. This 
+    authentication process requires you to log in using the <code>/login</code> endpoint. You will be given
+    a secret (a hash) in the success response. This hash will then be used to generate a signature for your 
+    requests using a <code>SHA256</code> hash.
+</p>
+<p>
+    To calculate this value, hash the contents of your message and send the result as the value for the
+    <code>X-Signature</code> header.
+</p>
+<p>
+    An example request might look like:
+</p>
+<pre><code>GET /user HTTP/1.0
+Host: test.com
+X-Session: 13066b17bbd780d5384a54830c5594e0ba6fc9e2282a08bec17ec6893b593202
+X-Signature: 79202a7b8e8e068d331417867bab9b4cdc7f277acae42779982c02688ecb4d94
+
+body=content&goes=here</code></pre>
+<p>
+    To create the hash, use the data and secret along with the `SHA256` algorithm to make a HMAC value. 
+    For example, in Python this might look like this:
+</p>
+<pre><code>import hashlib, hmac
+
+secret = '3aba3643d3ff1e16a82010a0fb2c994a5d993f4cc6d638b42ccb810345cfe4f3'
+data = ''
+signature = hmac.new(secret, data, hashlib.sha256).hexdigest()</code></pre>
+<hr/>
+
+<h3>Register</h3>
+<p>
+    <b>Endpoint:</b><code>POST /register</code><br/>
+    <b>Requires Authentication:</b> No<br/>
+    <b>Required Parameters:</b>
+    <ul>
+        <li><code>username</code></li>
+        <li><code>password</code></li>
+    </ul>
+    <b>Example Success Response:</b>
+    <code><pre>{
+  "success": true,
+  "message": "You have successfully registered. You can now use your account."
+}</pre></code>
+</p>
+
+<h3>Login</h3>
+<p>
+    <b>Endpoint:</b><code>POST /login</code><br/>
+    <b>Requires Authentication:</b> No<br/>
+    <b>Required Parameters:</b>
+    <ul>
+        <li><code>username</code></li>
+        <li><code>password</code></li>
+    </ul>
+    <b>Example Success Response:</b>
+    <code><pre>{
+  "success": true,
+  "message": { "secret": "[... secret value ...]" }
+}</pre></code>
+    This secret value is used as a part of future requests requring authentication.
+</p>
+
+<h3>Get All Users</h3>
+<p>
+    <b>Endpoint:</b><code>GET /users</code><br/>
+    <b>Requires Authentication:</b> Yes<br/>
+    <b>Required Parameters:</b> None<br/>
+    <b>Example Success Response:</b>
+    <code><pre>{
+  "success": true,
+  "message": {"users": [
+    {
+        "username": "user1"
+    }
+  ]}
+}</pre></code>
+    This secret value is used as a part of future requests requring authentication.
+</p>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+flask
+flask_restful
+orator
+flask-orator
+bcrypt

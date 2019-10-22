@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Users API</h2>
+
+<p>
+    The Users API provides information about the users in the system. In order to use this API you must 
+    log in. Information on this process is found below.
+</p>
+<hr/>
+
+<h3>Authentication</h3>
+<p>
+    An example request might look like:
+</p>
+<pre><code>GET /user HTTP/1.0
+Host: test.com
+X-Session: 13066b17bbd780d5384a54830c5594e0ba6fc9e2282a08bec17ec6893b593202
+X-Signature: 79202a7b8e8e068d331417867bab9b4cdc7f277acae42779982c02688ecb4d94
+
+[... Additional paramaters for the request go here ...]</code></pre>
+<hr/>
+
+<h3>Login</h3>
+<p>
+    <b>Endpoint:</b><code>POST /login</code><br/>
+    <b>Requires Authentication:</b> No<br/>
+    <b>Required Parameters:</b>
+    <ul>
+        <li><code>username</code></li>
+        <li><code>password</code></li>
+    </ul>
+    <b>Example Success Response:</b>
+    <code><pre>{
+  "success": true,
+  "message": "You have successfully registered. You can now use your account."
+}</pre></code>
+</p>
+
+<h3>Get users</h3>
+<p>
+    Please note: unless your user has "admin" level access, you will only receive your 
+    own information from this endpoint.
+</p>
+<p>
+    <b>Endpoint:</b><code>GET /users</code><br/>
+    <b>Requires Authentication:</b> Yes<br/>
+    <b>Required Parameters:</b> None<br/>
+    <b>Example Success Response:</b>
+    <code><pre>{
+  "users": [
+        { ... }
+  ]
+}</pre></code>
+</p>
+
+
+{% endblock %}

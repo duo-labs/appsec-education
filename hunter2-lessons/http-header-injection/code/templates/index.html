@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+<a href="/vulnerable">Vulnerable example</a><br/>
+</p>
+
+{% if username %}
+    <b>Hello {{ username }}!</b>
+{% endif %}
+
+{% endblock %}

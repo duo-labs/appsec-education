@@ -1,0 +1,4 @@
+flask
+bcrypt
+flask-restful
+crypto

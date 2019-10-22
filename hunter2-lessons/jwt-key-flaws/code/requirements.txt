@@ -1,0 +1,8 @@
+flask
+pyjwt
+flask-restful
+orator
+flask-orator
+bcrypt
+pycrypto
+cryptography
