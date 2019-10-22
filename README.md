@@ -17,4 +17,15 @@ Each of these presentations include content covering a wide range of application
 
 As a part of this public release of our content, we've also included the code and content for our custom Hunter2 labs. [Hunter2](https://hunter2.com) is a platform specifically designed to help users gain application security knowledge through hands-on labs, identifying issues and fixing vulnerabilities.
 
+Current labs cover:
+
+- HTTP Header Injection
+- JSON Injection
+- Flaws in JWTs
+- Mass Assignment
+- Type juggling issues (Power of None)
+- Replay Attacks
+
+Each lesson directory contains a `content/` subdirectory containing Markdown files for the lesson content and a `code/` directory containing the related vulnerable application.
+
 These lessons have been made available on the Hunter2 platform a part of a collaboration between the Hunter2 service and Duo Security. More information about it can be found on the Hunter2 site: [https://hunter2.com/community](https://hunter2.com/community)
