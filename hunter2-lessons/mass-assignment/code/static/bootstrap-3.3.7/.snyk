@@ -1,0 +1,41 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.21.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - grunt-contrib-watch > tiny-lr > body-parser > debug:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:hoek:20180212':
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > hawk > hoek:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > hawk > boom > hoek:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > hawk > sntp > hoek:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > hawk > cryptiles > boom > hoek:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:lodash:20180130':
+    - grunt-jscs > jscs > lodash:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-jscs > jscs > xmlbuilder > lodash:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-jscs > jscs > jscs-jsdoc > jsdoctypeparser > lodash:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:minimatch:20160620':
+    - grunt-csscomb > csscomb > csscomb-core > minimatch:
+        patched: '2021-07-15T20:26:29.297Z'
+    - grunt-csscomb > csscomb > csscomb-core > vow-fs > glob > minimatch:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:ms:20170412':
+    - grunt-contrib-watch > tiny-lr > body-parser > debug > ms:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:request:20160119':
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:tough-cookie:20170905':
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > tough-cookie:
+        patched: '2021-07-15T20:26:29.297Z'
+  'npm:tunnel-agent:20170305':
+    - grunt-contrib-qunit > grunt-lib-phantomjs > phantomjs > request > tunnel-agent:
+        patched: '2021-07-15T20:26:29.297Z'
